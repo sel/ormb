@@ -27,6 +27,12 @@ func TestParseReference(t *testing.T) {
 			want:    &Reference{Tag: "1612367", Repo: "registry.example.com/project/repo"},
 			wantErr: false,
 		},
+		{
+			name:    "Test tag in scientific format.",
+			args:    args{s: "registry.example.com/project/repo:20497e7"},
+			want:    &Reference{Tag: "20497e7", Repo: "registry.example.com/project/repo"},
+			wantErr: false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
